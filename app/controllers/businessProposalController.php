@@ -23,4 +23,6 @@ function create($recipient, $company, $proposalHandler, $number, $date, $value, 
     $businessProposal->setScheduleText($scheduleText);
     $businessProposal->setProposalPresentationText($proposalPresentationText);
     $businessProposal->setProposalTitle($proposalTitle);
+
+    echo $businessProposal;
 }

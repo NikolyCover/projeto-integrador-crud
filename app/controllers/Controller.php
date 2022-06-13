@@ -7,9 +7,12 @@
             if(function_exists($useCase)){
                 call_user_func($useCase);
             
+            } else if(function_exists("preventDefault")) {
+            
+                call_user_func("preventDefault");
+            
             } else {
-                echo 'erro';
-                throw new Exception("O caso de uso chamado não existe");
+                throw new BadFunctionCallException("Usecase not exists");
             }
 
         }
@@ -34,5 +37,6 @@
         $action = "preventDefault";
     }
     
+    echo $action;
     Controller::callUseCase($action);
 ?>
