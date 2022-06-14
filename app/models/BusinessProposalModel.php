@@ -2,6 +2,7 @@
 
     class BusinessProposalModel {
 
+        private $id;
         private $recipient;
         private $company;
         private $proposalHandler;
@@ -20,6 +21,18 @@
         private $scheduleText;
         private $proposalPresentationText;
         private $proposalTitle;
+
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        public function setId($id)
+        {
+                $this->id = $id;
+
+                return $this;
+        }
         
         public function getRecipient()
         {
