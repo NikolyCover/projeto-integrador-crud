@@ -17,11 +17,15 @@
         <form action="../controllers/businessProposalController.php?action=create" method="POST">
             <div>
                 <label>Título:</label>
-                <input name="title" type="text" required>
+                <input name="proposalTitle" type="text" required>
             </div>
             <div>
                 <label>Número:</label>
                 <input name="number" type="text" required>
+            </div>
+            <div>
+                <label>Tipo de proposta comercial:</label>
+                <input name="type" type="text" required>
             </div>
             <div>
                 <label>Data:</label>
@@ -29,7 +33,7 @@
             </div>
             <div>
                 <label>Responsável pela proposta PTI:</label>
-                <input name="proposalHandler" type="date" required>
+                <input name="proposalHandler" type="text" required>
             </div>
             <div>
                 <label>Empresa:</label>
