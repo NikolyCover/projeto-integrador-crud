@@ -1,11 +1,28 @@
 <?php
 
 require_once __DIR__ . "/Controller.php";
-require_once __DIR__ . "/../models/BusinessProposalModel.php";
+require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
 
-function create($recipient, $company, $proposalHandler, $number, $date, $value, $cnpj, $type, $paymentType, $schedule, $scope, $confidentialityText, $tributesText, $generalConditionText, $finalResultsText, $scheduleText, $proposalPresentationText, $proposalTitle) {
+function create() {
+    $company = $_POST('company');
+    $proposalHandler = $_POST('proposalHandler');
+    $number = $_POST('number');
+    $date = $_POST('date');
+    $value = $_POST('value');
+    $cnpj = $_POST('cnpj');
+    $type = $_POST('type');
+    $paymentType = $_POST('paymentType');
+    $scope = $_POST('scope');
+    $confidentialityText = $_POST('confidentialityText');
+    $tributesText = $_POST('tributesText');
+    $generalConditionText = $_POST('generalConditionText');
+    $finalResultsText = $_POST('finalResultsText');
+    $scheduleText = $_POST('scheduleText');
+    $proposalPresentationText = $_POST('proposalPresentationText');
+    $proposalTitle = $_POST('proposalTitle');
+    $recipient = $_POST('recipient');
+
     $bp = new BusinessProposalModel();
-    $bp->setRecipient($recipient);
     $bp->setCompany($company);
     $bp->setProposalHandler($proposalHandler);
     $bp->setNumber($number);
@@ -14,7 +31,6 @@ function create($recipient, $company, $proposalHandler, $number, $date, $value, 
     $bp->setCnpj($cnpj);
     $bp->setType($type);
     $bp->setPaymentType($paymentType);
-    $bp->setSchedule($schedule);
     $bp->setScope($scope);
     $bp->setConfidentialityText($confidentialityText);
     $bp->setTributesText($tributesText);
@@ -23,8 +39,23 @@ function create($recipient, $company, $proposalHandler, $number, $date, $value, 
     $bp->setScheduleText($scheduleText);
     $bp->setProposalPresentationText($proposalPresentationText);
     $bp->setProposalTitle($proposalTitle);
+    $bp->setRecipient($recipient);
 
     $bpRepository = new BusinessProposalRepository();
     $id = $bpRepository->create($bp);
     $bp->setId($id);
 }
+
+function findAll()
+{
+    #$bpRepository = new BusinessProposalRepository();
+
+    #$bps = $bpRepository->findAll();
+
+    #$data['title'] = "Propostas comerciais";
+    #$data['bps'] = $bps;
+
+    Controller::loadView("index.php");
+}
+
+?>

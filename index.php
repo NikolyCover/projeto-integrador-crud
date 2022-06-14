@@ -1,3 +1,3 @@
 <?php
 
-    header('location: app/controllers/businessProposalController.php');
+    header('location: app/controllers/businessProposalController.php?action=findAll');
