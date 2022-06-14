@@ -58,4 +58,14 @@ function findAll()
     Controller::loadView("index.php");
 }
 
+function deleteUserById()
+{
+    $idParam = $_GET['id'];
+    $bpRepository = new BusinessProposalRepository();
+
+    $bpRepository->deleteById($idParam);
+
+    Controller::loadView("index.php");
+}
+
 ?>

@@ -17,71 +17,71 @@
         <form action="../controllers/businessProposalController.php?action=create" method="POST">
             <div>
                 <label>Título:</label>
-                <input name="title" type="text" >
+                <input name="title" type="text" required>
             </div>
             <div>
                 <label>Número:</label>
-                <input name="number" type="text" >
+                <input name="number" type="text" required>
             </div>
             <div>
                 <label>Data:</label>
-                <input name="date" type="date" >
+                <input name="date" type="date" required>
             </div>
             <div>
                 <label>Responsável pela proposta PTI:</label>
-                <input name="proposalHandler" type="date" >
+                <input name="proposalHandler" type="date" required>
             </div>
             <div>
                 <label>Empresa:</label>
-                <input name="company" type="text" >
+                <input name="company" type="text" required>
             </div>
             <div>
                 <label>Cnpj;</label>
-                <input name="cnpj" type="text" >
+                <input name="cnpj" type="text" required>
             </div>
             <div>
                 <label>Responsável da empresa:</label>
-                <input name="recipient" type="text" >
+                <input name="recipient" type="text" required>
             </div>
             <div>
                 <label>Apresentação:</label>
-                <textarea name="proposalPresentationText" rows="4" cols="128"></textarea>
+                <textarea name="proposalPresentationText" rows="4" cols="128" required></textarea>
             </div>
             <div>
                 <label>Escopo:</label>
-                <textarea name="scope" rows="4" cols="128"></textarea>
+                <textarea name="scope" rows="4" cols="128" required></textarea>
             </div>
             <div>
                 <label>Confidencialidade:</label>
-                <textarea name="confidentialityText" rows="4" cols="128"></textarea>
+                <textarea name="confidentialityText" rows="4" cols="128" required></textarea>
             </div>
             <div>
                 <label>Tributos:</label>
-                <textarea name="tributesText" rows="4" cols="128"></textarea>
+                <textarea name="tributesText" rows="4" cols="128" required></textarea>
             </div>
             <div>
                 <label>Condições gerais:</label>
-                <textarea name="generalConditionText" rows="4" cols="128"></textarea>
+                <textarea name="generalConditionText" rows="4" cols="128" required></textarea>
             </div>
             <div>
                 <label>Resultados finais:</label>
-                <textarea name="finalResultsText" rows="4" cols="128"></textarea>
+                <textarea name="finalResultsText" rows="4" cols="128" required></textarea>
             </div>
             <div>
                 <label>Resultados finais:</label>
-                <textarea name="finalResultsText" rows="4" cols="128"></textarea>
+                <textarea name="finalResultsText" rows="4" cols="128" required></textarea>
             </div>
             <div>
                 <label>Cronograma:</label>
-                <textarea name="scheduleText" rows="4" cols="128"></textarea>
+                <textarea name="scheduleText" rows="4" cols="128" required></textarea>
             </div>
             <div>
                 <label>Valor:</label>
-                <input name="value" type="number" >
+                <input name="value" type="number" required>
             </div>
             <div>
                 <label>Tipo de pagamento:</label>
-                <input name="paymentType" type="text" >
+                <input name="paymentType" type="text" required>
             </div>
             <button type="submit">Cadastrar</button>
         </form>
