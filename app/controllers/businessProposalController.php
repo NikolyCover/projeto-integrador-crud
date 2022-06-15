@@ -63,7 +63,10 @@ function update()
 {
     require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
 
+    $idParam = $_GET['id'];
+
     $bp = createBp();
+    $bp->setId($idParam);
 
     $bpRepository = new BusinessProposalRepository();
     $bpRepository->update($bp);
@@ -91,8 +94,6 @@ function findById()
     $bp = $bpRepository->findById($idParam);
 
     return $bp;
-
-    //Controller::loadView("users/list.php");
 }
 
 function deleteUserById()
@@ -104,7 +105,11 @@ function deleteUserById()
 
     $bpRepository->deleteById($idParam);
 
-    #findAll();
+    findAll();
+}
+
+function preventDefault() {
+    findAll();
 }
 
 ?>

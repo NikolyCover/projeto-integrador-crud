@@ -39,8 +39,8 @@
                     <p><?= $bp['paymentType'] ?></p>
                 </div>
                 </br>
-                <a href="../views/edit.php">Editar</a>
-                <a href='../controllers/businessProposalController.php?action=deleteUserById&id=' . $bp['id']>Apagar</a>
+                <a href="../views/edit.php?id=" . <?= $bp['id']; ?>>Editar</a>
+                <a href='../controllers/businessProposalController.php?action=deleteUserById&id=' . <?= $bp['id']; ?>>Apagar</a>
             </div>
         <?php endforeach; ?>
     </main>

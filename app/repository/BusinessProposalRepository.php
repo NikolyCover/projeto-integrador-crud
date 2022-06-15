@@ -100,6 +100,7 @@
             
             } else {
                 $bp = null;
+                echo "deu bo";
             }
 
             return $bp;

@@ -14,10 +14,10 @@
     </header>
     <main>
 
-        <form action="../controllers/businessProposalController.php?action=update" method="POST">
+        <form action="../controllers/businessProposalController.php?action=update?id="<?= $_GET['id'] ?> method="POST">
             <div>
                 <label>Título:</label>
-                <input name="proposalTitle" type="text" value=<?= "a"; ?> required>
+                <input name="proposalTitle" type="text" required>
             </div>
             <div>
                 <label>Número:</label>
