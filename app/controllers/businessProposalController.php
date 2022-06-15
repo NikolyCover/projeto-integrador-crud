@@ -2,9 +2,11 @@
 
 require_once __DIR__ . "/Controller.php";
 require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
-#require_once __DIR__ . "/../models/BusinessProposalModel.php";
+require_once __DIR__ . "/../models/BusinessProposalModel.php";
 
 function createBp() {
+    require_once __DIR__ . "/../models/BusinessProposalModel.php";
+
     $company = $_POST['company'];
     $proposalHandler = $_POST['proposalHandler'];
     $number = $_POST['number'];
@@ -46,15 +48,21 @@ function createBp() {
 }
 
 function create() {
+    require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
+
     $bp = createBp();
 
     $bpRepository = new BusinessProposalRepository();
     $id = $bpRepository->create($bp);
     $bp->setId($id);
+
+    findAll();
 }
 
 function update()
 {
+    require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
+
     $bp = createBp();
 
     $bpRepository = new BusinessProposalRepository();
@@ -75,12 +83,14 @@ function findAll()
 
 function deleteUserById()
 {
+    require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
+
     $idParam = $_GET['id'];
     $bpRepository = new BusinessProposalRepository();
 
     $bpRepository->deleteById($idParam);
 
-    Controller::loadView("index.php");
+    #findAll();
 }
 
 ?>

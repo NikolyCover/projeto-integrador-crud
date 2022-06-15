@@ -14,43 +14,44 @@
         public function create(BusinessProposalModel $bp) {
             
             try {
-                $query = "INSERT INTO `businessproposals` (" .
-                "`company`,".
-                "`proposalHandler`,".
-                "`number`,".
-                "`date`,".
-                "`value`,".
-                "`cnpj`,".
-                "`type`,".
-                "`paymentType`,".
-                "`scope`,".
-                "`confidentialityText`,".
-                "`tributesText`,".
-                "`generalConditionText`,".
-                "`finalResultsText`,".
-                "`scheduleText`,".
-                "`proposalPresentationText`,".
-                "`proposalTitle`,".
-                "`recipient`)".
-                "VALUES(
-                :company,
-                :proposalHandler,
-                :number,
-                :date,
-                :value,
-                :cnpj,
-                :type,
-                :paymentType,
-                :scope,
-                :confidentialityText,
-                :tributesText,
-                :generalConditionText,
-                :finalResultsText,
-                :scheduleText,
-                :proposalPresentationText
-                :proposalTitle,
-                :recipient";
-
+                $query = "INSERT INTO `businessproposals` (
+                    `id`,
+                    `company`,
+                    `proposalHandler`,
+                    `number`,
+                    `date`,
+                    `value`,
+                    `cnpj`,
+                    `type`,
+                    `paymentType`,
+                    `scope`,
+                    `confidentialityText`,
+                    `tributesText`,
+                    `generalConditionText`,
+                    `finalResultsText`,
+                    `scheduleText`,
+                    `proposalPresentationText`,
+                    `proposalTitle`,
+                    `recipient`) VALUES (
+                    NULL,
+                    :company,
+                    :proposalHandler,
+                    :number,
+                    :date,
+                    :value,
+                    :cnpj,
+                    :type,
+                    :paymentType,
+                    :scope,
+                    :confidentialityText,
+                    :tributesText,
+                    :generalConditionText,
+                    :finalResultsText,
+                    :scheduleText,
+                    :proposalPresentationText,
+                    :proposalTitle,
+                    :recipient)";
+            
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(":company", $bp->getCompany());
             $prepare->bindValue(":proposalHandler", $bp->getProposalHandler());
@@ -74,7 +75,7 @@
             return $this->conn->lastInsertId();
 
             } catch(Exception $e) {
-                print("Error inserting business proposal in database");
+                print("Error inserting business proposal in database" . $e);
             }
         }
 
