@@ -40,7 +40,7 @@
                 </div>
                 </br>
                 <a href="../controllers/businessProposalController.php?action=findByIdToEdit&id=<?= $bp['id']; ?>" >Editar</a>
-                <a href='../controllers/businessProposalController.php?action=deleteUserById&id=' . <?= $bp['id']; ?>>Apagar</a>
+                <a href='../controllers/businessProposalController.php?action=deleteUserById&id=<?= $bp['id']; ?>' >Apagar</a>
             </div>
         <?php endforeach; ?>
     </main>
