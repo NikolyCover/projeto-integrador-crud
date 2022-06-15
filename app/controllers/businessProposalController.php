@@ -3,7 +3,7 @@
 require_once __DIR__ . "/Controller.php";
 require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
 
-function create() {
+function createBp() {
     $company = $_POST['company'];
     $proposalHandler = $_POST['proposalHandler'];
     $number = $_POST['number'];
@@ -41,9 +41,23 @@ function create() {
     $bp->setProposalTitle($proposalTitle);
     $bp->setRecipient($recipient);
 
+    return $bp;
+}
+
+function create() {
+    $bp = createBp();
+
     $bpRepository = new BusinessProposalRepository();
     $id = $bpRepository->create($bp);
     $bp->setId($id);
+}
+
+function update()
+{
+    $bp = createBp();
+
+    $bpRepository = new BusinessProposalRepository();
+    $bpRepository->update($bp);
 }
 
 function findAll()
