@@ -96,7 +96,7 @@
 
             if($prepare->execute()){
             
-                $bp  = $prepare->fetchObject();
+                $bp  = $prepare->fetchObject('BusinessProposalModel');
             
             } else {
                 $bp = null;
@@ -125,7 +125,7 @@
                     scheduleText = :scheduleText,
                     proposalPresentationText = :proposalPresentationText,
                     proposalTitle = :proposalTitle,
-                    recipient = :recipient,
+                    recipient = :recipient
                     WHERE id = :id";
 
             $prepare = $this->conn->prepare($query);

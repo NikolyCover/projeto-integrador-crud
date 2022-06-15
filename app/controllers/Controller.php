@@ -18,10 +18,10 @@
         }
 
         public static function loadView(string $path, array $data = null){
-
+            
             if($data != null) {
                 extract($data);
-            }
+            }            
             
             $caminho = __DIR__ . "/../views/" . $path;
        

@@ -5,7 +5,7 @@ require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
 require_once __DIR__ . "/../models/BusinessProposalModel.php";
 
 function createBp() {
-    require_once __DIR__ . "/../models/BusinessProposalModel.php";
+    require_once __DIR__ . "/../models/BusinessProposalModel.php";    
 
     $company = $_POST['company'];
     $proposalHandler = $_POST['proposalHandler'];
@@ -60,21 +60,24 @@ function create() {
 }
 
 function update()
-{
+{    
     require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
 
-    $idParam = $_GET['id'];
+    $idParam = intval($_GET['id']);    
 
     $bp = createBp();
-    $bp->setId($idParam);
+    $bp->setId($idParam);        
 
-    $bpRepository = new BusinessProposalRepository();
+    $bpRepository = new BusinessProposalRepository();    
     $bpRepository->update($bp);
+
+    findAll();
 }
 
 function findAll()
 {
     require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
+
 
     $bpRepository = new BusinessProposalRepository();
     $bps = $bpRepository->findAll();
@@ -87,13 +90,16 @@ function findAll()
 function findById()
 {
     require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
-
     $idParam = $_GET['id'];
-
     $bpRepository = new BusinessProposalRepository();
     $bp = $bpRepository->findById($idParam);
 
     return $bp;
+}
+
+function findByIdToEdit(){
+    $bp = findById();
+    Controller::loadView("edit.php", array("bp" =>$bp));
 }
 
 function deleteUserById()

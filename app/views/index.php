@@ -14,7 +14,7 @@
     </header>
 
     <main>
-        <?php foreach($bps as $bp): ?>
+        <?php foreach($bps as $bp): ?>            
             <div class="bp">
                 <h1><?= $bp['proposalTitle'] ?> - <?= $bp['number'] ?></h1>
                 <h3><?= $bp['type'] ?></h3>
@@ -39,7 +39,7 @@
                     <p><?= $bp['paymentType'] ?></p>
                 </div>
                 </br>
-                <a href="../views/edit.php?id=" . <?= $bp['id']; ?>>Editar</a>
+                <a href="../controllers/businessProposalController.php?action=findByIdToEdit&id=<?= $bp['id']; ?>" >Editar</a>
                 <a href='../controllers/businessProposalController.php?action=deleteUserById&id=' . <?= $bp['id']; ?>>Apagar</a>
             </div>
         <?php endforeach; ?>
