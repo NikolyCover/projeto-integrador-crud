@@ -81,6 +81,20 @@ function findAll()
     Controller::loadView("index.php", $data);
 }
 
+function findById()
+{
+    require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
+
+    $idParam = $_GET['id'];
+
+    $bpRepository = new BusinessProposalRepository();
+    $bp = $bpRepository->findById($idParam);
+
+    return $bp;
+
+    //Controller::loadView("users/list.php");
+}
+
 function deleteUserById()
 {
     require_once __DIR__ . "/../repository/BusinessProposalRepository.php";

@@ -87,7 +87,24 @@
             return $bps;
         }
 
-        
+        public function findById($id) {
+
+            $query = "SELECT * FROM `businessproposals` WHERE `businessproposals`.id = :id";
+            
+            $prepare = $this->conn->prepare($query);
+            $prepare->bindValue(":id", $id);
+
+            if($prepare->execute()){
+            
+                $bp  = $prepare->fetchObject();
+            
+            } else {
+                $bp = null;
+            }
+
+            return $bp;
+        }
+
         public function update(BusinessProposalModel $bp) {
 
             $query = "UPDATE `businessproposals` SET 
