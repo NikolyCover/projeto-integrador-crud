@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/Controller.php";
 require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
+#require_once __DIR__ . "/../models/BusinessProposalModel.php";
 
 function createBp() {
     $company = $_POST['company'];
@@ -62,14 +63,14 @@ function update()
 
 function findAll()
 {
-    #$bpRepository = new BusinessProposalRepository();
+    require_once __DIR__ . "/../repository/BusinessProposalRepository.php";
 
-    #$bps = $bpRepository->findAll();
+    $bpRepository = new BusinessProposalRepository();
+    $bps = $bpRepository->findAll();
+    $data['title'] = "Propostas comerciais";
+    $data['bps'] = $bps;
 
-    #$data['title'] = "Propostas comerciais";
-    #$data['bps'] = $bps;
-
-    Controller::loadView("index.php");
+    Controller::loadView("index.php", $data);
 }
 
 function deleteUserById()

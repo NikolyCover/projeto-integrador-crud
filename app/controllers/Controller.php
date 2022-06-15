@@ -19,7 +19,7 @@
 
         public static function loadView(string $path, array $data = null){
 
-            #extract($data);
+            extract($data);
             
             $caminho = __DIR__ . "/../views/" . $path;
        

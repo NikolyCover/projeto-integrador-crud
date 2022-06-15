@@ -14,36 +14,35 @@
     </header>
 
     <main>
-        <?php #foreach($bps as $bp): ?>
+        <?php foreach($bps as $bp): ?>
             <div class="bp">
-                <h1>title - number</h1>
-                <h3>type</h3>
-                <h3>date</h3>
-                <h3>proposalHandler</h3>
+                <h1><?= $bp['proposalTitle'] ?> - <?= $bp['number'] ?></h1>
+                <h3><?= $bp['type'] ?></h3>
+                <h3><?= $bp['date'] ?></h3>
+                <h3><?= $bp['proposalHandler'] ?></h3>
                 <div>
-                    <p>company</p>
-                    <p>cnpj</p>
-                    <p>recipient</p>
+                    <p><?= $bp['company'] ?></p>
+                    <p><?= $bp['cnpj'] ?></p>
+                    <p><?= $bp['recipient'] ?></p>
                 </div>
                 <div>
-                    <p>proposalPresentationText</p>
-                    <p>scope</p>
-                    <p>confidentialityText</p>
-                    <p>tributesText</p>
-                    <p>generalConditionText</p>
-                    <p>finalResultsText</p>
-                    <p>scheduleText</p>
-                    <p></p>
+                    <p><?= $bp['proposalPresentationText'] ?></p>
+                    <p><?= $bp['scope'] ?></p>
+                    <p><?= $bp['confidentialityText'] ?></p>
+                    <p><?= $bp['tributesText'] ?></p>
+                    <p><?= $bp['generalConditionText'] ?></p>
+                    <p><?= $bp['finalResultsText'] ?></p>
+                    <p><?= $bp['scheduleText'] ?></p>
                 </div>
                 <div>
-                    <p>value</p>
-                    <p>paymentType</p>
+                    <p><?= $bp['value'] ?></p>
+                    <p><?= $bp['paymentType'] ?></p>
                 </div>
                 </br>
                 <a href="../views/edit.php">Editar</a>
                 <a href="">Apagar</a>
             </div>
-        <?php #endforeach; ?>
+        <?php endforeach; ?>
     </main>
 
     <footer>

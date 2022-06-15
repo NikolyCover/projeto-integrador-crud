@@ -19,7 +19,7 @@ header {
     justify-content: space-between
 }
 
-a {
+a, button {
     background-color: #00ABAF;
     color: #FFF;
     border: none;
